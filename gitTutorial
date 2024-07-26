@@ -53,7 +53,7 @@
     - git status 查看仓库命令
     - git add 添加到暂存区
     - git commit 提交
-    - git log 查看提交信息
+    - git log 查看提交记录
 
   (2) 基础命令使用方式
     - git add   -- 提交文件
@@ -64,8 +64,8 @@
       = 注意：git commit 只会提交暂存区的文件
       = git commit -m "提交信息"  
         = 如果不写 -m 就会进入 vim 来编辑提交信息 =
-    - git log   -- 查看提交信息
-
+    - git log   -- 查看提交记录
+      = git log -- oneline   -- 查看简洁的提交记录
   (3)
   (4)
 
