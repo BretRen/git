@@ -199,11 +199,13 @@
   (10) 恢复分支
     - git chackout -b <分支名> <提交id>
 
+  (11) Rebase合并
+    - git rebase <分支名>
 
 
+8. 设置别名(alias)
 
-
-
+  (1) 定义：alias 别名="命令"
 
 
 
