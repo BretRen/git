@@ -103,6 +103,11 @@
   (7) 查看暂存区文件
     - git ls-files   -- 查看暂存区中的内容
   
+  (8) 小技巧
+    - 添加暂存区和提交
+      = 在提交的命令加上 -a 参数
+      = 如：git commit -a <选项>…
+
 
 5. HEAD
 - HEAD   -- 当前版本
@@ -154,6 +159,19 @@
   (6) 删除分支
     - git branch -d <name>   -- 删除分支（如非合并无法删除）
     - git branch -D <name>   -- 强制删除
+  
+  (7) 合并分支冲突
+    - 举个例子
+      = 创建 feat 分支
+      = 切换 feat 分支
+      = 创建 main.txt 文件和修改
+      = 提交
+      = 切换 main 分支
+      = 创建 main.txt 文件和修改 
+      = 提交
+      = 被 feat 与 main 合并
+
+
   (8) 分支状态（agnoster）
     - ⭠: 当前分支名。显示当前所在的分支名或标签名。
     - ✔: 工作目录干净（即没有未提交的更改）。
@@ -167,17 +185,19 @@
     - ⇄: 当前分支与远程分支有差异（即有未推送或未拉取的提交）。
     - ⬡: 当前仓库有未合并的分支。
     - ✔: 当前分支已经合并。
-  (9) 分支状态（gitstatus）
-    - On branch <分支名>
-         -- 在<分支名>上
-      Your branch is ahead of '<远程仓库名>/<远程分支名>' by <数字> commit.
-         -- 您的分支比'<远程仓库名>/<远程分支名>'领先 <数字> 个提交。 
-      (use "git push" to publish your local commits)
-         -- （使用“git push”发布您的本地提交）
-      nothing to commit, working tree clean
-         -- 无需提交，工作树已清理
+  
+   (9) 分支状态（gitstatus）
+     - On branch <分支名>
+       -- 在<分支名>上
+       Your branch is ahead of '<远程仓库名>/<远程分支名>' by <数字> commit.
+          -- 您的分支比'<远程仓库名>/<远程分支名>'领先 <数字> 个提交。 
+       (use "git push" to publish your local commits)
+          -- （使用“git push”发布您的本地提交）
+       nothing to commit, working tree clean
+          -- 无需提交，工作树已清理
 
-
+  (10) 恢复分支
+    - git chackout -b <分支名> <提交id>
 
 
 
