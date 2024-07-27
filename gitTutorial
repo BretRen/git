@@ -126,9 +126,9 @@
       PreferredAuthentications <name>
       IdentityFile <path>
   - 连接仓库
-    = git remote add origin git@github.com:BretRen/git.git
-    = git branch -M main
-    = git push -u origin main
+    = git remote add origin git@github.com:BretRen/git.git   -- 连接
+    = git branch -M main   -- 调整分支名称为main
+    = git push -u origin main  -- 把本地仓库的内容提交到远程仓库
   - 推送新的内容
     = git push <远程仓库名> <远程分支名>:<本地分支名>
   - 拉取新的内容
