@@ -151,9 +151,9 @@
   (5) 查看分支信息
     - git log --graph --oneline --decorate --all   -- 查看分支信息
 
-
-
-
+  (6) 删除分支
+    - git branch -d <name>   -- 删除分支（如非合并无法删除）
+    - git branch -D <name>   -- 强制删除
 
 
 
