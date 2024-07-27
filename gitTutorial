@@ -81,7 +81,7 @@
 
   (4) 撤回回退版本
     - git reflog   -- 查看操作日志
-    - git reset --head <在reflog 的版本号>
+    - git reset --hard <在reflog 的版本号>
   
   (5) 查看不同分支之间的差异
     - git diff   --  查看不同分支之间的差异（工作区，暂存区）
@@ -145,71 +145,11 @@
     - git checkout <name>   -- 切换至 <name> 分支
     - git switch <name>   -- 切换至 <name> 分支
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  (4) 合并分支
+    - git merge <name>   -- 把 <name> 分支合并到当前分支
+
+  (5) 查看分支信息
+    - git log --graph --oneline --decorate --all   -- 查看分支信息
 
 
 
