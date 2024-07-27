@@ -1,0 +1,171 @@
+1. git的使用方式
+  - 命令行 -- 常用 -- 推荐
+  - 图形化软件（GUI）
+  - IDE/编辑器插件
+
+  (1) 命令行
+    - git -v 查看版本
+  
+  (2) 设置邮箱即用户名
+    - git config --global user.name "用户名"
+      = 如果有空格需双引号反之无需
+    - git config --global user.email "邮箱"
+      = 如果有空格需双引号反之无需
+    - git config --global credential.helper store
+      = 保留密码，用户名下次无需输入
+ 
+
+  (3) 作用域
+    - 省略（local）：本地配置，只对本地仓库有效
+    - --global：全局配置，所有仓库有效
+    - --system：系统配置，对所有用户有效
+
+  (4) 查看配置信息
+    - git config --global --list
+  
+  (5) 调整默认分支名称
+    - git config --global init.defaultBranch "名称"
+      = 保留密码，用户名下次无需输入
+
+2. 创建仓库
+  - git init 在本地创建仓库
+  - git clone 在github中克隆仓库到本地
+  - git init 名字 在当前目录创建/导入<名字>文件夹而且创建仓库
+
+3. 工作区域和文件状态
+
+  (1)工作区域
+    - 工作区
+    - 暂存区
+    - 本地仓库
+
+  (2) 文件状态
+    - 未跟踪   -- 没有被git管理的文件。
+    - 未修改   -- 已被git管理，没有被改文件。
+    - 已修改   -- 已经修改过了，没有被添加到暂存区里。
+    - 已暂存   -- 已经修改过了，已添加到暂存区里。
+    - 已提交   -- 已经提交过的文件。
+
+4. 添加和提交文件
+	
+  (1) 需要用到的命令
+    - git init 创建仓库
+    - git status 查看仓库命令
+    - git add 添加到暂存区
+    - git commit 提交
+    - git log 查看提交记录
+    - git reset 回退版本
+    - git reflog 查看操作日志
+    - git diff 查看不同分支之间的差异
+
+  (2) 基础命令使用方式
+    - git add   -- 提交文件
+      = git add xxx.xxx   -- 提交 xxx.xxx 
+        = 多个文件可使用空格分开，可使用通配符。 = 
+    - git rm --cached <file>...   -- 取消文件至暂存区
+    - git commit   -- 提交文件
+      = 注意：git commit 只会提交暂存区的文件
+      = git commit -m "提交信息"  
+        = 如果不写 -m 就会进入 vim 来编辑提交信息 =
+    - git log   -- 查看提交记录
+      = git log -- oneline   -- 查看简洁的提交记录
+  
+  (3) 回退版本
+    - git reset -- soft   -- 软的
+      = 回退到某个版本，保留工作区和暂存区的所有修改内容
+    - git reset -- hard   -- 硬的
+      = 回退到某个版本，丢弃工作区和暂存区的所有内容
+    - git reset -- mixed  -- 混合的
+      = 回退到某个版本，保留工作区所有内容，丢弃暂存区的所有修改内容
+    - git reset -- 模式 HEAD^   -- 表示回退到上一个版本
+
+  (4) 撤回回退版本
+    - git reflog   -- 查看操作日志
+    - git reset --hard <在reflog 的版本号>
+  
+  (5) 查看不同分支之间的差异
+    - git diff   --  查看不同分支之间的差异（工作区，暂存区）
+      = 默认查看工作区和暂存区之间的差异内容  
+    - git diff HEAD   -- 查看不同分支之间发差异（工作区，仓库）
+      = 对比工作区和仓库的差异
+    - git diff --cached   -- 查看不同分支之间发差异（暂存区，仓库）
+      = 对比暂存区和仓库的差异
+    - git diff xxxxx xxxxx -- 查看不同分支之间发差异（版本，版本）
+      = 对比版本和版本的差异版本
+      = git diff xxx yyy zzz   -- 查看xxx与yyy中的zzz文件的差异
+  
+  (6) 删除文件
+    - 删除工作区文件
+      = rm <file>... [path] 非git命令
+    - 删除暂存区
+      = git rm <file>... [path]   -- 同时删除工作区和暂存区
+
+  (7) 查看暂存区文件
+    - git ls-files   -- 查看暂存区中的内容
+  
+
+5. HEAD
+- HEAD   -- 当前版本
+- HEAD^   -- 上一个版本
+- HEAD~   -- 上一个版本
+- HEAD~2  -- 上两个版本
+
+
+6. .gitignore文件
+  - 在.gitignore文件里边的文件都会忽略
+  - 允许通配符
+  - 前提：不能是已经在版本库里的文件
+
+7. 连接远程仓库
+  - ssh-keygen -t rsa -b 4096   -- 创建密钥
+  - 如果输入非默认名字：
+    = vim config
+    = 输入以下内容
+      Host github.com
+      Hostname github.com
+      PreferredAuthentications <name>
+      IdentityFile <path>
+  - 连接仓库
+    = git remote add origin git@github.com:BretRen/git.git   -- 连接
+    = git branch -M main   -- 调整分支名称为main
+    = git push -u origin main  -- 把本地仓库的内容提交到远程仓库
+  - 推送新的内容
+    = git push <远程仓库名> <远程分支名>:<本地分支名>
+  - 拉取新的内容
+    = git pull <远程仓库名> <远程分支名>:<本地分支名> 
+
+7. 分支
+  (1) 查看所有分支
+    - git branch   -- 查看当前仓库的所有分支  
+      = 带*号是当前分支
+  (2) 创建分支
+    - git branch <name>   -- 创建 <name> 分支
+
+  (3) 切换分支
+    - git checkout <name>   -- 切换至 <name> 分支
+    - git switch <name>   -- 切换至 <name> 分支
+
+  (4) 合并分支
+    - git merge <name>   -- 把 <name> 分支合并到当前分支
+
+  (5) 查看分支信息
+    - git log --graph --oneline --decorate --all   -- 查看分支信息
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
