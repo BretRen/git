@@ -125,6 +125,10 @@
       Hostname github.com
       PreferredAuthentications <name>
       IdentityFile <path>
+  - 连接仓库
+    = git remote add origin git@github.com:BretRen/git.git
+    = git branch -M main
+    = git push -u origin main
   - 推送新的内容
     = git push <远程仓库名> <远程分支名>:<本地分支名>
   - 拉取新的内容
