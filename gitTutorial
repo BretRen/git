@@ -116,6 +116,48 @@
   - 允许通配符
   - 前提：不能是已经在版本库里的文件
 
+7. 连接远程仓库
+  - ssh-keygen -t rsa -b 4096   -- 创建密钥
+  - 如果输入非默认名字：
+    = vim config
+    = 输入以下内容
+      Host github.com
+      Hostname github.com
+      PreferredAuthentications <name>
+      IdentityFile <path>
+  - 推送新的内容
+    = git push <远程仓库名> <远程分支名>:<本地分支名>
+  - 拉取新的内容
+    = git pull <远程仓库名> <远程分支名>:<本地分支名> 
+
+7. 分支
+  (1) 查看所有分支
+    - git branch   -- 查看当前仓库的所有分支  
+      = 带*号是当前分支
+  (2) 创建分支
+    - git branch <name>   -- 创建 <name> 分支
+
+  (3) 切换分支
+    - git checkout <name>   -- 切换至 <name> 分支
+    - git switch <name>   -- 切换至 <name> 分支
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
